@@ -1,0 +1,67 @@
+name: JEE God Mode — Daily Push Notifications
+
+on:
+  # 7:00 AM IST  = 01:30 UTC
+  # 10:00 PM IST = 16:30 UTC
+  schedule:
+    - cron: "30 1 * * *"   # 7:00 AM IST
+    - cron: "30 16 * * *"  # 10:00 PM IST
+
+  # Manual trigger (use this to TEST before relying on the cron)
+  workflow_dispatch:
+    inputs:
+      type:
+        description: "Notification type to send"
+        required: true
+        default: "morning"
+        type: choice
+        options:
+          - morning
+          - night
+
+jobs:
+  send:
+    name: Send ${{ github.event.inputs.type || 'scheduled' }} notifications
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout repo ────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Set up Node.js ───────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # ── 3. Install dependencies ─────────────────────────────────────────────
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+
+      # ── 4. Determine notification type ──────────────────────────────────────
+      #   If triggered manually → use the chosen input
+      #   If triggered by cron  → detect from current UTC hour
+      - name: Determine notification type
+        id: type
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "type=${{ github.event.inputs.type }}" >> $GITHUB_OUTPUT
+          else
+            HOUR=$(date -u +%H)
+            echo "Current UTC hour: $HOUR"
+            if [ "$HOUR" = "01" ]; then
+              echo "type=morning" >> $GITHUB_OUTPUT
+            else
+              echo "type=night" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      # ── 5. Send notifications ───────────────────────────────────────────────
+      - name: Send notifications
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          NOTIFICATION_TYPE: ${{ steps.type.outputs.type }}
+        run: node send-notifications.js
