@@ -54,8 +54,8 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.notification?.title || "🌅 JEE God Mode";
   const notificationOptions = {
     body: payload.notification?.body || "Stay focused! 🎯",
-    icon: "/vite.svg",
-    badge: "/vite.svg",
+    icon: "/icons/icon-192x192.png",
+    badge: "/icons/icon-192x192.png",
     tag: payload.notification?.tag || "jee-notification",
     requireInteraction: true,
     vibrate: [200, 100, 200],

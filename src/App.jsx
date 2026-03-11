@@ -446,6 +446,8 @@ export default function JeeGodModeTracker() {
   const [closingModal, setClosingModal] = useState(null);
   // Auth slide-transition state for login ↔ register
   const [authOutClass, setAuthOutClass] = useState("");
+  // Guard: prevents auto-save from firing before Firestore data is loaded
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   const evaluatePerformance = (h, s) => {
     const hours = parseFloat(h);
@@ -817,6 +819,7 @@ export default function JeeGodModeTracker() {
         try {
           localStorage.setItem(`jee_cache_user_${userId}`, JSON.stringify(d));
         } catch (_) {}
+        setDataLoaded(true); // ✅ Data loaded — allow auto-save now
       } else {
         console.log("📝 New user - creating document");
         await setDoc(doc(db, "jeeWarriors", userId), {
@@ -832,6 +835,7 @@ export default function JeeGodModeTracker() {
         });
         // FIX 1: Initialize graphCalendarData for new users
         setGraphCalendarData(generateGraphCalendarData({}));
+        setDataLoaded(true); // ✅ New user doc created — allow auto-save now
       }
 
       const token = await registerForPushNotifications();
@@ -867,6 +871,7 @@ export default function JeeGodModeTracker() {
           }
           generateSevenDayData(d.history || {});
           setGraphCalendarData(generateGraphCalendarData(d.history || {}));
+          setDataLoaded(true); // ✅ Cache fallback loaded — allow auto-save now
         }
       } catch (_) {}
     }
@@ -1137,7 +1142,7 @@ export default function JeeGodModeTracker() {
   };
 
   useEffect(() => {
-    if (!firebaseAvailable || !user) return;
+    if (!firebaseAvailable || !user || !dataLoaded) return; // ✅ Never saves zeros on first load
     const payload = {
       streak,
       l5Streak,
@@ -1153,6 +1158,7 @@ export default function JeeGodModeTracker() {
     return () => clearTimeout(t);
   }, [
     user,
+    dataLoaded,
     streak,
     l5Streak,
     history,
@@ -1409,6 +1415,7 @@ export default function JeeGodModeTracker() {
     setPassword("");
     setHasSubmittedData(true);
     setCurrentLevel(0);
+    setDataLoaded(false); // ✅ Reset guard for next login
   };
 
   const registerForPushNotifications = async () => {
@@ -1638,7 +1645,12 @@ export default function JeeGodModeTracker() {
         const hoursRemaining =
           (24 * 60 * 60 * 1000 - timeSinceLastBattle) / (60 * 60 * 1000);
 
-        if (hoursRemaining > 0 && hoursRemaining <= 1 && !todayBattle) {
+        if (
+          hoursRemaining > 0 &&
+          hoursRemaining <= 1 &&
+          !todayBattle &&
+          streak > 1
+        ) {
           const key = `lastPanic_${today}`;
           if (!localStorage.getItem(key)) {
             await showNotification("⚠️ STREAK CRITICAL!", {
