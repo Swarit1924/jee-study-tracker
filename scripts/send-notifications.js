@@ -78,11 +78,6 @@ function getYesterdayIST() {
   return getISTDateStr(d);
 }
 
-function isSundayIST() {
-  const utc = Date.now() + new Date().getTimezoneOffset() * 60000;
-  return new Date(utc + 5.5 * 3600000).getDay() === 0;
-}
-
 function randomFrom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -288,11 +283,7 @@ async function sendMilestone(db, messaging, today) {
 }
 
 async function sendWeeklyGraph(db, messaging, today) {
-  if (!isSundayIST()) {
-    console.log("\n📊 WEEKLY GRAPH — not Sunday, skipping");
-    return;
-  }
-  console.log("\n📊 WEEKLY GRAPH — Sunday only");
+  console.log("\n📊 WEEKLY GRAPH — Saturday 10:30 PM IST");
   const snapshot = await db.collection("jeeWarriors").get();
   const targets = [];
   for (const doc of snapshot.docs) {
@@ -442,7 +433,6 @@ async function main() {
 
   console.log(`\n🚀 Type  : [${TYPE}]`);
   console.log(`📅 Today : ${today} (IST)`);
-  console.log(`📅 Sunday: ${isSundayIST()}`);
   console.log("─".repeat(50));
 
   if (TYPE === "morning") {
@@ -450,7 +440,6 @@ async function main() {
   } else if (TYPE === "night") {
     await sendNight(db, messaging, today);
     await sendMilestone(db, messaging, today);
-    await sendWeeklyGraph(db, messaging, today);
   } else if (TYPE === "reminder") {
     await sendReminder(db, messaging, today);
     await sendStreakPanic(db, messaging, today);

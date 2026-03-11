@@ -1,0 +1,24 @@
+name: 📊 Weekly Graph Notification (Saturday 10:30 PM IST)
+
+on:
+  schedule:
+    - cron: "0 17 * * 6" # 10:30 PM IST Saturday = 17:00 UTC Saturday
+  workflow_dispatch: # manual test button
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+        working-directory: scripts
+      - run: node send-notifications.js
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          NOTIFICATION_TYPE: weekly

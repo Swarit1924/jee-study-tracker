@@ -1,0 +1,24 @@
+name: 🌙 Night Notification (10 PM IST)
+
+on:
+  schedule:
+    - cron: "30 16 * * *" # 10:00 PM IST = 16:30 UTC
+  workflow_dispatch: # manual test button
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+        working-directory: scripts
+      - run: node send-notifications.js
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          NOTIFICATION_TYPE: night
