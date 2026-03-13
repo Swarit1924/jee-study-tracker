@@ -24,7 +24,7 @@ import {
   enableIndexedDbPersistence,
   onSnapshot,
 } from "firebase/firestore";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { getMessaging, getToken } from "firebase/messaging";
 import {
   LineChart,
   Line,
@@ -2135,32 +2135,9 @@ export default function JeeGodModeTracker() {
     }
   };
 
-  useEffect(() => {
-    if (!messaging || !user) return;
-
-    const unsubscribe = onMessage(messaging, (payload) => {
-      try {
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.ready.then((registration) => {
-            registration.showNotification(
-              payload.notification?.title || "JEE Study Tracker",
-              {
-                body: payload.notification?.body || "New strike!",
-                icon: "🎯",
-                badge: "🎯",
-                tag: "jee-fcm-notification",
-                requireInteraction: true,
-              },
-            );
-          });
-        }
-      } catch (err) {
-        console.error("❌ Error displaying foreground message:", err);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [messaging, user]);
+  // Foreground onMessage intentionally removed.
+  // The service worker handles ALL notifications (foreground + background).
+  // Having both caused duplicate notifications when the app was open.
 
   const checkMilestones = async (newStreak, newL5) => {
     if ([7, 21, 30, 60, 90, 365].includes(newL5)) {
