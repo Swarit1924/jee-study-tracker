@@ -22,9 +22,7 @@ jobs:
         run: cd scripts && npm install
       - name: Send daily tip
         env:
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
-          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           NOTIFICATION_TYPE: daily_tip
           DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: node scripts/send-notifications.js
