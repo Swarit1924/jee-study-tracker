@@ -285,6 +285,531 @@ const REWARDS_HIGH_STUDY = [
   "🎁 BALANCED STUDY! Enjoy your break:\n✓ Walk/Exercise (25 mins)\n✓ Entertainment (1 hour)\n✓ Creative hobby (30 mins)\n✓ Friend time (20 mins)",
 ];
 
+const DAILY_TIPS_APP = [
+  {
+    short: "Solve 20 PYQ questions every day without fail.",
+    detailed:
+      "Previous Year Questions are the most reliable predictor of what JEE will ask. Solve at least 20 PYQs daily — not for speed, but to understand the examiner's pattern. After each PYQ, ask: why did they ask this, and what concept does it test?",
+  },
+  {
+    short:
+      "After a wrong answer, understand why — don't just see the solution.",
+    detailed:
+      "Most students glance at the solution and move on. Real learning happens when you sit with the error — write down exactly where your reasoning broke, then redo the problem from scratch without looking. This forces genuine understanding.",
+  },
+  {
+    short: "Solve problems without knowing the chapter first.",
+    detailed:
+      "Real JEE questions don't come labelled by topic. Practice solving problems without knowing which chapter they're from. This trains your brain to identify the concept first — exactly what the exam demands.",
+  },
+  {
+    short: "Time yourself on every problem set you solve.",
+    detailed:
+      "JEE is not just about knowing the answer — it's about getting it in under 3 minutes. Set a timer for every practice set. If you exceed the time, mark the problem and return later. Speed is a skill built through deliberate timed practice.",
+  },
+  {
+    short: "One wrong problem understood deeply beats ten easy ones.",
+    detailed:
+      "Spending 30 minutes on one problem you got wrong teaches you more than solving 10 easy problems quickly. Identify the error type: concept gap, calculation mistake, or misread question. Fix the root cause, not the symptom.",
+  },
+  {
+    short: "Eliminate options strategically — never guess completely randomly.",
+    detailed:
+      "In JEE, educated elimination is a legitimate skill. Even when unsure, eliminate clearly wrong options based on units, magnitudes, or extreme cases. Reducing 4 options to 2 gives you positive expected value even with negative marking.",
+  },
+  {
+    short: "Solve the same problem 3 different ways — then you own it.",
+    detailed:
+      "If you can solve a problem three different ways, you truly own that concept. This prevents getting stuck when the standard method doesn't come to mind under exam pressure. Try algebraic, graphical, and intuitive approaches.",
+  },
+  {
+    short: "Mark difficult problems and return after 24 hours.",
+    detailed:
+      "When a problem completely stumps you, leave it and return after 24 hours. Your subconscious continues processing it. Often the solution becomes clearer after sleep — and this habit also trains you not to waste exam time on stuck questions.",
+  },
+  {
+    short: "Keep a mistakes notebook and review it every Sunday.",
+    detailed:
+      "Record every wrong answer, categorised by topic and error type, and review it every Sunday. Patterns will emerge — you'll realise you always make the same arithmetic mistake, or miss the same concept. Fix patterns, not individual errors.",
+  },
+  {
+    short: "Solve 5 problems purely in your head — no pen.",
+    detailed:
+      "Mental calculation is undervalued in JEE prep. 10 minutes daily solving simple problems in your head builds number sense and speeds up rough work in the exam. Physics unit analysis and quick Chemistry balancing can all be done mentally.",
+  },
+  {
+    short: "Learn to sanity-check answers in 30 seconds without resolving.",
+    detailed:
+      "Develop quick checks: does the unit match? Is the magnitude sensible? Does it reduce to a known result at extreme values? These 30-second checks catch 70% of silly mistakes without re-solving the whole problem.",
+  },
+  {
+    short: "3 hard problems daily beats 30 easy ones.",
+    detailed:
+      "Three hard problems that stretch your understanding are worth more than thirty easy ones that give false confidence. Deliberately choose problems rated above your current level. Struggle is the signal that learning is happening.",
+  },
+  {
+    short: "Derive every formula once from scratch — then you never forget it.",
+    detailed:
+      "Deriving a formula makes it impossible to forget. You can reconstruct it in 2 minutes during the exam if memory blanks. Derivation also reveals which parts can be modified for trickier questions — pure memorisation never gives you this.",
+  },
+  {
+    short: "Full-length mocks must be under real exam conditions every week.",
+    detailed:
+      "Sit for 3 hours with no phone, no breaks, in silence. Exam stamina is physical — your brain tires after extended focus. Regular full-length mocks condition you to maintain sharpness all 3 hours. One mock per week from month 3 onwards.",
+  },
+  {
+    short: "Analyse your mock before you see the solutions.",
+    detailed:
+      "Before reading the answer key, reattempt every question you marked uncertain. This dual-pass approach trains you to catch errors under pressure and makes you independent of the answer key for self-correction.",
+  },
+  {
+    short: "Plan tomorrow's study schedule every night before sleeping.",
+    detailed:
+      "Spend 5 minutes every night planning exactly what you will study tomorrow — subject, topic, page numbers. A specific plan removes decision-making cost in the morning. Vague plans like 'study Physics' consistently fail; specific ones don't.",
+  },
+  {
+    short: "Use your first 2 morning hours for Maths — your sharpest time.",
+    detailed:
+      "Cognitive sharpness peaks in the first 2 hours after waking. Reserve this time exclusively for Maths, which demands the most logical working memory. Save reading-heavy Chemistry theory for evening when your brain is more receptive to retention.",
+  },
+  {
+    short: "Study in 50-minute blocks with strict 10-minute breaks.",
+    detailed:
+      "50 minutes of focused study followed by a mandatory 10-minute break where you move away from your desk. After 4 blocks, take a 30-minute break. This prevents mental fatigue accumulation and maintains quality throughout the day.",
+  },
+  {
+    short: "Never study the same subject for more than 3 hours straight.",
+    detailed:
+      "Beyond 3 consecutive hours on one subject, retention drops sharply even if you feel focused. Switch subjects every 2-3 hours. Interleaved studying also forces your brain to retrieve knowledge from different memory stores, strengthening long-term retention.",
+  },
+  {
+    short: "Protect your first 30 study minutes from phone — no exceptions.",
+    detailed:
+      "The first 30 minutes of your study session sets the tone for the next 3 hours. Checking your phone in this window spikes dopamine and makes sustained focus nearly impossible. Put the phone in another room before you open your books.",
+  },
+  {
+    short: "Track actual study hours — not time sitting at your desk.",
+    detailed:
+      "Sitting at a desk for 8 hours is not 8 hours of study. Track only minutes of active, focused engagement. Most students discover their actual study time is 40-50% of their desk time. Honesty about this is the first step to improvement.",
+  },
+  {
+    short: "Batch your doubts — don't interrupt study flow to look things up.",
+    detailed:
+      "When a doubt arises, write it in a doubt list and keep studying. Resolve the entire batch at the end of the session. This maintains flow, and you'll often find the doubt resolves itself as you study further.",
+  },
+  {
+    short: "Schedule your hardest topic first every single day.",
+    detailed:
+      "Willpower is highest at the start of your study session. Put your weakest subject or most difficult chapter first — before you're tired, before you have excuses. Easy topics done first create a false sense of productivity while the hard work remains undone.",
+  },
+  {
+    short: "Saturday: mock tests. Sunday: deep error analysis. Every week.",
+    detailed:
+      "Build a weekly rhythm: Saturday mock under exam conditions, Sunday full analysis of every error without time pressure. This weekly cycle ensures you're both practicing under pressure and deeply learning from mistakes — the two activities most students neglect.",
+  },
+  {
+    short: "Use commute and waiting time for theory revision, not scrolling.",
+    detailed:
+      "Any waiting time is ideal for low-intensity revision: reading a summary sheet, recalling formulas mentally, reviewing your mistakes notebook. Protect desk time for active problem solving. Use in-between time for passive review.",
+  },
+  {
+    short: "Never skip sleep to study — it destroys the next 2 days.",
+    detailed:
+      "Sleeping fewer than 6 hours kills memory consolidation, slows reaction time, and impairs logical reasoning — exactly the skills JEE tests. One all-nighter costs you 2 full days of degraded performance. 10 hours of quality study beats 14 hours of sleep-deprived study.",
+  },
+  {
+    short: "Revise a topic within 24 hours of learning it — this is critical.",
+    detailed:
+      "The forgetting curve drops 70% within 24 hours without review. Revise any new topic within 24 hours using active recall: close the book and write everything you remember. A 15-minute review in 24 hours locks in what would take hours to re-learn days later.",
+  },
+  {
+    short:
+      "Set a hard stop time for studying and respect it — it builds urgency.",
+    detailed:
+      "Decide in advance when your study session ends and stop at that time regardless. This trains you to work with urgency during study hours rather than leisurely assuming you'll study more later. Work expands to fill available time — constrain it.",
+  },
+  {
+    short: "Review today's key points in 5 minutes before sleeping.",
+    detailed:
+      "Before bed, spend 5 minutes reviewing the main concepts from today's study session — just key points, no new material. This primes memory consolidation during sleep. Learning reviewed before sleep is retained significantly better than learning reviewed in the morning.",
+  },
+  {
+    short: "Take one complete rest day per week — burnout kills streaks.",
+    detailed:
+      "Full mental recovery requires periodic disengagement. Take one relaxed day per week — light revision only, some physical activity. Students who rest strategically consistently outperform those who study 7 days with declining quality. Recovery is part of preparation.",
+  },
+  {
+    short: "Every Physics problem starts with a free body diagram.",
+    detailed:
+      "Before writing any equation, draw the free body diagram. Every force on every object, clearly labelled with direction. This single habit prevents the majority of Physics errors — wrong sign, missing force, wrong direction. It takes 20 seconds and saves 5 minutes.",
+  },
+  {
+    short: "Understand the Physics concept before memorising the formula.",
+    detailed:
+      "If you understand why F=ma, you can reconstruct it. If you only memorised it, one moment of exam stress wipes it out. For every Physics formula, understand what it physically means — what changing each variable does to the system.",
+  },
+  {
+    short: "Dimensional analysis catches 80% of formula errors instantly.",
+    detailed:
+      "Before substituting numbers, verify your equation is dimensionally consistent. Both sides must have identical SI units. This catches transposed formulas, missing factors of 2 or π, and wrong variable substitutions — all common errors even when your Physics understanding is correct.",
+  },
+  {
+    short: "Draw energy diagrams for every mechanics problem.",
+    detailed:
+      "Potential energy vs position diagrams reveal equilibrium points, stability, turning points, and motion direction without solving differential equations. Sketching U(x) graphs for springs, pendulums, and gravitational wells makes complex mechanics problems visually obvious.",
+  },
+  {
+    short: "Electrostatics: superposition is your most powerful tool.",
+    detailed:
+      "Every complex electrostatics problem reduces to superposition of simple configurations. Decompose the charge distribution into point charges, rings, discs, or shells — each with a known field. Add vectors carefully. This solves problems that seem impossibly complex.",
+  },
+  {
+    short:
+      "Waves: always separate what is oscillating from what is propagating.",
+    detailed:
+      "In any wave problem, distinguish the medium particles (which oscillate) from the wave (which propagates). The wave transfers energy but not matter. This clears up standing waves, superposition, and intensity problems that confuse students who blur the two concepts.",
+  },
+  {
+    short:
+      "Modern Physics is formula-heavy but concept-light — master it quickly.",
+    detailed:
+      "Modern Physics (photoelectric effect, Bohr model, radioactivity, nuclear physics) requires fewer deep concepts than Mechanics but precise formula use. Compile all formulas in one sheet, memorise the constants, and solve 100 numericals. This chapter is a reliable mark scorer.",
+  },
+  {
+    short: "Thermodynamics: draw the PV diagram before calculating anything.",
+    detailed:
+      "The PV diagram is to Thermodynamics what the free body diagram is to Mechanics. Draw it first — identify the process, mark start and end states, and read off work done from the area under the curve. This prevents the most common Thermodynamics errors.",
+  },
+  {
+    short:
+      "Electricity circuits: redraw in simplest form before applying equations.",
+    detailed:
+      "Most complex circuit problems have symmetry or reducible series/parallel combinations hiding in plain sight. Spend 30 seconds redrawing the circuit in its simplest equivalent form before applying Kirchhoff. Rushing straight to equations wastes time on unnecessarily complex systems.",
+  },
+  {
+    short:
+      "Rotational Motion: always choose the axis that eliminates unknown torques.",
+    detailed:
+      "The choice of axis for torque calculations is strategic, not arbitrary. Choose an axis that passes through the point of application of unknown forces to eliminate them from your equation. This reduces unknowns and simplifies solutions dramatically — most students choose randomly and end up with harder algebra.",
+  },
+  {
+    short: "Organic Chemistry reactions follow patterns — learn the mechanism.",
+    detailed:
+      "Every Organic reaction follows a mechanical electron-flow pattern. Learn why nucleophiles attack electrophilic carbons, not just what the product is. Once you understand the mechanism, you can predict any reaction outcome rather than memorising 200 separate reactions.",
+  },
+  {
+    short: "Periodic table trends are the backbone of Inorganic Chemistry.",
+    detailed:
+      "Electronegativity, ionisation energy, atomic radius, electron affinity — all trend predictably across periods and down groups. Before memorising exceptions, understand core trends perfectly. At least 40% of Inorganic Chemistry questions are answered directly by knowing these trends and their reasons.",
+  },
+  {
+    short: "Physical Chemistry is applied Maths — treat it exactly like one.",
+    detailed:
+      "Chemical Kinetics, Thermodynamics, Electrochemistry, and Solutions are mathematics with chemical context. Use the same systematic approach: derive the formula, understand the variable relationships, solve numericals. Students who treat Physical Chemistry as memorisation consistently underperform.",
+  },
+  {
+    short:
+      "Balance redox equations using oxidation state method, not trial and error.",
+    detailed:
+      "The oxidation number method for balancing redox equations is systematic and works every time: calculate oxidation state change for each element, equalise electron transfer, balance atoms, then balance charge with H+ or OH-. Practice until it is automatic.",
+  },
+  {
+    short: "Draw all structural isomers methodically — never by intuition.",
+    detailed:
+      "When identifying isomers, draw systematically: start with the longest carbon chain, reduce by one carbon each time adding branches, then change functional group positions. Random intuitive drawing always misses isomers. A systematic 3-step process finds them all.",
+  },
+  {
+    short: "Memorise Chemistry exceptions — they are the most tested.",
+    detailed:
+      "JEE loves asking about anomalous behaviour: water's anomalous expansion, Fluorine without d-orbitals, the diagonal relationship in the periodic table, anomalous configurations of Cr and Cu. Compile 20 key exceptions and their reasons. These appear disproportionately in JEE questions.",
+  },
+  {
+    short: "Use IUPAC naming on every single practice problem.",
+    detailed:
+      "Naming seems tedious but IUPAC questions appear every year. More importantly, the naming exercise forces you to read structural formulas carefully, helping you correctly identify compounds in every reaction question. Make IUPAC naming automatic — it transfers to all other skills.",
+  },
+  {
+    short: "p-block: know the oxides and hydrides of each group cold.",
+    detailed:
+      "For each p-block group (13-18), know the nature of oxides (acidic/basic/amphoteric), the nature of hydrides (reducing/non-reducing), and the anomalous behaviour of the first element. This covers 70% of p-block questions with systematic knowledge rather than random memorisation.",
+  },
+  {
+    short: "The Nernst equation appears in JEE almost every single year.",
+    detailed:
+      "Master the Nernst equation: E = E° - (RT/nF)lnQ. Know how to calculate cell potential at non-standard conditions, how concentration affects EMF, and how to relate E to ΔG and equilibrium constant K. One problem from this area appears almost guaranteed in every paper.",
+  },
+  {
+    short:
+      "Use curved arrows for reaction mechanisms — never memorise without them.",
+    detailed:
+      "Arrow-pushing notation forces you to track electron flow, which is the actual chemistry. Drawing curved arrows from nucleophile to electrophile, from bond to leaving group — this process tells you what product forms. Students who memorise outcomes without mechanism fail on modified versions of standard reactions.",
+  },
+  {
+    short:
+      "Calculus: understand the definition of derivative before the rules.",
+    detailed:
+      "The derivative is the instantaneous rate of change — this single understanding unlocks all of Calculus. Before applying differentiation rules mechanically, understand what you are calculating: the limit of Δy/Δx as Δx→0. This handles unusual functions and applied problems that formula-only students cannot.",
+  },
+  {
+    short: "The unit circle is more powerful than any trig formula sheet.",
+    detailed:
+      "All trigonometric values, signs, and identities follow from the unit circle. Spend 2 hours deeply understanding it and you'll never need to memorise ASTC, sign charts, or most trig identities — they become visually obvious. This is one of the highest-ROI hours in JEE Maths prep.",
+  },
+  {
+    short:
+      "Coordinate Geometry: verify your equation by substituting a known point.",
+    detailed:
+      "After deriving the equation of a line, circle, parabola, or ellipse, substitute one point you know is on the curve and verify it satisfies your equation. This 10-second check catches algebraic errors before they propagate into wrong final answers.",
+  },
+  {
+    short: "Probability: always define the sample space before anything else.",
+    detailed:
+      "Every Probability error starts with an incorrectly defined sample space. Before calculating anything, write out all possible outcomes and verify they are mutually exclusive and exhaustive. A correctly defined sample space makes probability calculations almost automatic.",
+  },
+  {
+    short:
+      "Matrices: learn the cofactor method for inverse — it's faster for 3x3.",
+    detailed:
+      "For JEE, cofactor method is faster than row reduction for 3×3 matrices. Find the cofactor matrix, transpose it to get the adjugate, divide by the determinant. Practice until this takes under 4 minutes. Determinant and inverse calculations appear in almost every JEE paper.",
+  },
+  {
+    short: "Vectors: resolve every 3D problem into components immediately.",
+    detailed:
+      "3D geometry and vector problems become mechanical once you resolve all vectors into î, ĵ, k̂ components. The dot product, cross product, and angle between vectors become arithmetic. Students who work with magnitude-and-angle form in 3D make errors that component form prevents.",
+  },
+  {
+    short: "Integration: recognise the type before choosing the technique.",
+    detailed:
+      "Before integrating, classify: standard form, substitution, by parts, partial fractions, or trigonometric substitution? Spending 5 seconds recognising the type saves 5 minutes of wrong attempts. Build a decision tree: check if it's a derivative of the denominator, then try substitution, then parts.",
+  },
+  {
+    short: "AP, GP, HP sum formulas must be completely automatic.",
+    detailed:
+      "Sum of AP, GP, HP, sum of squares, sum of cubes — these must be instantly accessible. For AGP (Arithmetic-Geometric Progression), practice the multiply-and-subtract method specifically. These topics appear in JEE almost every year and reward thorough practice over intuition.",
+  },
+  {
+    short:
+      "Complex numbers: draw the Argand plane — most problems become visual.",
+    detailed:
+      "Most complex number problems that seem algebraic are actually geometric — rotation, distance, locus. Draw the Argand plane immediately. Multiplication by i is a 90° rotation; |z1-z2| is the distance between two points. Seeing the geometry reduces complex algebra to simple diagrams.",
+  },
+  {
+    short: "P&C: always ask 'is order important?' before writing any formula.",
+    detailed:
+      "The single question separating Permutation from Combination: does order matter? Then ask: are objects distinct or identical? Are repetitions allowed? These three questions cover 95% of P&C problem types. Answer them first, choose the formula second.",
+  },
+  {
+    short: "Drink 3 litres of water daily — dehydration kills focus.",
+    detailed:
+      "Even mild dehydration (1-2% of body weight) measurably impairs cognitive performance, memory, and concentration. Keep a 1-litre bottle on your desk and finish 3 refills by end of day. The habit takes 2 days to form and pays dividends every study hour.",
+  },
+  {
+    short: "Eat light at lunch — heavy meals crash your afternoon energy.",
+    detailed:
+      "High-carbohydrate, heavy lunches trigger a post-meal insulin response that produces significant drowsiness 30-60 minutes later. Eat light, protein-rich lunches — dal, curd, eggs — and save heavier meals for dinner after your session. Afternoon productivity will visibly improve.",
+  },
+  {
+    short: "30 minutes of walking daily is brain maintenance, not optional.",
+    detailed:
+      "Aerobic exercise increases BDNF (Brain-Derived Neurotrophic Factor), which directly supports memory consolidation. A 30-minute walk is not time lost to studying — it is maintenance that makes the other 10 hours more effective. Students who exercise consistently outperform those who don't.",
+  },
+  {
+    short: "Follow the 20-20-20 rule for eyes every study session.",
+    detailed:
+      "Every 20 minutes, look at something 20 feet away for 20 seconds. This resets the ciliary muscle of your eye, preventing strain that leads to headaches and concentration drops. Studying with persistent eye strain means operating at 60% capacity.",
+  },
+  {
+    short: "A 20-minute nap restores focus without causing grogginess.",
+    detailed:
+      "A 20-minute nap (set a strict alarm) improves alertness for the next 2-3 hours. Going beyond 20 minutes enters deep sleep and causes post-nap grogginess lasting 30+ minutes. The 20-minute nap is well-studied and highly effective — use it after lunch if needed.",
+  },
+  {
+    short: "Never study past midnight — retention is minimal after then.",
+    detailed:
+      "After midnight, your brain's ability to encode new memories drops sharply due to circadian rhythm effects. Studying from 11 PM to 1 AM produces minimal retention while destroying sleep quality. Those 2 hours are better spent sleeping and starting fresh at 5 AM.",
+  },
+  {
+    short: "Eat a banana or nuts before a study session for sustained energy.",
+    detailed:
+      "Bananas provide quick-release glucose and potassium; nuts provide slow-release energy and healthy fats that support brain function. Eating either 15 minutes before a study session prevents energy dips mid-session better than caffeine, without the crash.",
+  },
+  {
+    short: "Same sleep and wake time every day — consistency is everything.",
+    detailed:
+      "Irregular sleep times disrupt the circadian rhythm and degrade sleep quality even when total hours are the same. Consistent sleep and wake times (weekends included) produce deeper, more restorative sleep with no extra cost. Rhythm is the foundation.",
+  },
+  {
+    short: "5-minute stretch every hour — your spine and focus will thank you.",
+    detailed:
+      "Sustained sitting compresses spinal discs and reduces blood flow, creating physical discomfort that accumulates into significant distraction. A 5-minute standing stretch every hour — neck rolls, shoulder rolls, back extension — resets physical comfort and gives your attention a genuine reset.",
+  },
+  {
+    short:
+      "Never study with lyrics on — they use the same memory buffer as reading.",
+    detailed:
+      "Language — spoken or sung — occupies the same working memory buffer that reading and problem solving use. Studying with lyrical music or TV on forces split attention, reducing comprehension and retention by 20-40% compared to silence. Silence or instrumental music only.",
+  },
+  {
+    short: "Comparison with others is the fastest way to destroy your focus.",
+    detailed:
+      "Your preparation timeline, pace, and method are unique to your starting point. Comparing your Day 45 to someone else's Day 200 is meaningless and corrosive. Measure progress against your own previous performance only. The question is not 'am I better than them?' but 'am I better than yesterday?'",
+  },
+  {
+    short: "Boredom during study is the signal you are doing the right work.",
+    detailed:
+      "Deep, sustained study of difficult concepts feels boring — not exciting. The exciting feeling comes from easy work that creates no new neural pathways. When you feel bored by a chapter, you are doing real work. Embrace it. Difficulty is the sensation of your brain growing.",
+  },
+  {
+    short: "Your rank is determined by your worst subject, not your best.",
+    detailed:
+      "JEE cutoffs require minimum performance across all three subjects. Being exceptional in Maths while weak in Chemistry is a strategy that fails. Identify your weakest subject every week and give it disproportionate time. One strong weak-subject performance lifts your rank more than marginal gains in your strong subject.",
+  },
+  {
+    short: "Eliminate the option of quitting before you even start.",
+    detailed:
+      "The option to quit is a cognitive tax on every difficult session. Remove it by committing to a specific number of days where quitting is simply not a choice you will entertain. This single mental shift removes the daily decision cost and produces extraordinary consistency.",
+  },
+  {
+    short: "Fear of failure is not your enemy — complacency is.",
+    detailed:
+      "Some anxiety about the exam is productive — it signals stakes and drives effort. The real enemy is complacency: believing your current effort level is sufficient. Check honestly every week: if the exam were tomorrow, would you feel prepared? If not, adjust today.",
+  },
+  {
+    short: "Celebrate small wins — they compound into massive momentum.",
+    detailed:
+      "Completing a difficult chapter, getting a hard problem right, maintaining your streak — acknowledge these explicitly. Small wins activate the reward system and make you more likely to repeat the behaviour. Students who track small progress maintain motivation far longer than those who only focus on the end goal.",
+  },
+  {
+    short: "Visualise your exam day success every night before sleeping.",
+    detailed:
+      "5 minutes of vivid positive visualisation before sleep programmes your brain for confidence and reduces exam anxiety over time. Don't visualise the result — visualise the process: sitting calmly, reading methodically, solving problems you know. Mental rehearsal makes the actual experience feel familiar.",
+  },
+  {
+    short: "Discomfort is temporary. The regret of not trying is permanent.",
+    detailed:
+      "Every hard morning, boring chapter, and frustrating problem session ends. The discomfort is finite. The clarity of having given your best effort — regardless of outcome — lasts far longer. Make decisions based on who you want to be in 5 years, not how you feel right now.",
+  },
+  {
+    short: "Identify your peak focus hours and protect them ruthlessly.",
+    detailed:
+      "Every person has 4-6 hours of peak cognitive performance per day. Identify your personal window — morning for most, late evening for some. Guard this window exclusively for your most demanding work. Filling it with easy tasks is a permanent, unrecoverable loss.",
+  },
+  {
+    short:
+      "The consistent student beats the brilliant one who doesn't show up.",
+    detailed:
+      "Consistency over 12 months compounds to an enormous advantage. A student studying 6 focused hours daily for 300 days accumulates 1800 hours — more than any cramming strategy can produce. You don't need to be the smartest in the room. You need to be the most consistent.",
+  },
+  {
+    short: "Read the entire paper for 5 minutes before solving anything.",
+    detailed:
+      "Spend the first 5 minutes reading every question without attempting any. This activates background processing — your brain begins working on all questions simultaneously. Questions that seemed hard often become clearer mid-paper due to this early activation.",
+  },
+  {
+    short:
+      "Start with your strongest subject to build confidence and bank marks.",
+    detailed:
+      "Starting with the subject you're most confident in banks those marks early, reduces anxiety, and frees cognitive load for harder subjects. A confident mindset going into your weaker subjects outperforms an anxious one by a measurable margin in actual performance.",
+  },
+  {
+    short: "Never spend more than 4 minutes on one stuck question.",
+    detailed:
+      "More than 3-4 minutes on one stuck question is never the right decision in JEE. Mark it clearly, move on, and return after completing the rest. Returning with fresh eyes after other questions often produces the insight that was missing the first time.",
+  },
+  {
+    short:
+      "Negative marking: only guess when you can eliminate at least 2 options.",
+    detailed:
+      "Random guessing in JEE Advanced produces negative expected value. Only attempt uncertain questions when you can confidently eliminate at least 2 of 4 options, giving positive expected value even with negative marking. Skipping is worth more than random guessing.",
+  },
+  {
+    short:
+      "JEE Mains: perfect accuracy on easy questions beats racing to hard ones.",
+    detailed:
+      "In JEE Mains, 60-70% of questions are straightforward standard applications. Perfect accuracy here gets you a strong score. Racing through them to attempt hard questions — and making avoidable errors — is the mistake that separates strong students from toppers.",
+  },
+  {
+    short:
+      "Keep rough work neat and systematic — toppers have immaculate rough work.",
+    detailed:
+      "Sloppy rough work leads to misread signs, lost intermediate results, and repeated calculations. Keep rough work organised in columns — one problem per section. The 5 extra seconds of organised writing saves 2 minutes of retracing steps. This is a genuine differentiator.",
+  },
+  {
+    short: "Don't change your first answer unless you found a specific error.",
+    detailed:
+      "Research consistently shows first instincts are more often correct than second-guessing. Change an answer only if you find a specific, identifiable error in your original solution — not because you 'feel' uncertain. Doubt-based changes more often go from right to wrong.",
+  },
+  {
+    short: "Physics then Chemistry then Maths — test this order in every mock.",
+    detailed:
+      "Physics and Chemistry questions generally take less time than Maths problems. Completing them first banks marks efficiently and leaves maximum time for Maths, where investment yields higher returns. Test this order in every mock and adjust based on your personal speed.",
+  },
+  {
+    short:
+      "Integer-type questions have no negative marking — always attempt all.",
+    detailed:
+      "JEE Advanced integer-type questions (0-9 answer) carry no negative marking. Every one must be attempted — never skipped. Even a rough estimate or dimensional analysis can produce the correct integer. These have the highest expected value per minute of any question type.",
+  },
+  {
+    short: "Eat light and sleep 8 hours the night before the exam — not study.",
+    detailed:
+      "The night before JEE is for physical preparation, not last-minute study. Eat a light, familiar meal. Sleep at your normal time. Lay out everything for tomorrow. A rested, calm brain on exam day outperforms a stressed, sleep-deprived one that studied until 2 AM.",
+  },
+  {
+    short: "Active recall beats re-reading by 3x for long-term retention.",
+    detailed:
+      "Re-reading notes feels productive but produces minimal retention because it is passive. Instead, close the book, write or say everything you remember about a topic, then check what you missed. This retrieval practice is 3x more effective at building long-term memory.",
+  },
+  {
+    short:
+      "Revise on days 1, 3, 7, 14, and 30 after learning — this is the spaced schedule.",
+    detailed:
+      "The forgetting curve is predictable — and beatable. Review new material on day 1, day 3, day 7, day 14, and day 30. Each review requires progressively less time while strengthening the memory trace. This gives near-permanent retention with total revision time under 2 hours per chapter.",
+  },
+  {
+    short: "Create a one-page summary of each chapter after completing it.",
+    detailed:
+      "After finishing a chapter, compress everything important onto one A4 page: key formulas, common tricks, frequent error types, 3 representative problems. This summary sheet is your revision tool for the next 12 months. Creating it is itself a powerful consolidation exercise.",
+  },
+  {
+    short: "Teach a concept to an imaginary student — gaps reveal themselves.",
+    detailed:
+      "The Feynman Technique: explain a concept as if teaching a 10-year-old, then identify where your explanation becomes vague or requires jargon. Vagueness signals a gap. Go back to the source, fill the gap, then explain again. This converts surface familiarity into deep understanding.",
+  },
+  {
+    short: "Revise formulas every morning for 10 minutes — just formulas.",
+    detailed:
+      "Keep a formula sheet for all three subjects. Spend 10 minutes every morning reading through it — not studying, just reading. This daily low-intensity exposure prevents formula blanks under exam stress. Formulas forgotten in the exam are almost always ones never regularly reviewed.",
+  },
+  {
+    short: "Interleaved revision beats blocked revision for exam performance.",
+    detailed:
+      "Instead of revising all of Physics, then all of Chemistry, then all of Maths in blocks — mix questions from different topics in the same session. It feels harder but produces dramatically better performance on mixed exams like JEE. Difficulty during revision is the signal of effective revision.",
+  },
+  {
+    short:
+      "Before a new chapter, write what you already know — this primes learning.",
+    detailed:
+      "Spending 5 minutes before a new chapter writing down everything you already know activates prior knowledge and creates hooks for the new information. This pre-activation means new concepts connect to existing ones immediately, improving comprehension speed and retention depth.",
+  },
+  {
+    short:
+      "Test yourself every 20 minutes — never revise for longer without recall.",
+    detailed:
+      "Long uninterrupted revision blocks create an illusion of learning. The information feels familiar during processing but the memory trace is weak. Every 20 minutes, close the material and test yourself. This self-testing, even if imperfect, massively strengthens retention compared to unbroken reading.",
+  },
+  {
+    short: "Review your last mock's error analysis before your next mock.",
+    detailed:
+      "Before sitting your next mock, spend 15 minutes reviewing error categories from the previous one. This ensures you're testing whether you've fixed specific weaknesses, not just practicing in a vacuum. Performance improvement requires targeted correction, not repeated exposure.",
+  },
+  {
+    short: "Last month before JEE: revise and practice only — no new chapters.",
+    detailed:
+      "In the final month, stop starting new chapters. Every hour of new content displaces an hour of revision of already-learned material. Your score is built on strong retrieval of known content, not weak familiarity with new content. Revise relentlessly, attempt daily mocks, and trust the work you've done.",
+  },
+];
+
 const JEE_TIPS = {
   7: "🎓 7-DAY WARRIOR! You're building momentum!\n\n✅ Solve 50-70 problems daily\n✅ Sleep: 11 PM - 6 AM (7-8 hours)\n✅ Wake up: 5-6 AM\n✅ 10-min breaks every hour\n✅ Drink water, eat healthy snacks\n✅ Exercise 30 mins daily\n\nYour consistency is POWER! 💪",
 
@@ -414,6 +939,9 @@ export default function JeeGodModeTracker() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
   const [lastNotificationDate, setLastNotificationDate] = useState(null);
   const [hasSubmittedData, sethasSubmittedData] = useState(true);
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [tipStartDate, setTipStartDate] = useState(null);
+  const [lastTipShownDate, setLastTipShownDate] = useState(null);
 
   const [grindHours, setGrindHours] = useState(1);
   const [doomHours, setDoomHours] = useState(0);
@@ -428,6 +956,7 @@ export default function JeeGodModeTracker() {
   const [currentEgoQuote, setCurrentEgoQuote] = useState(EGO_INSULTS[0]);
   const [sevenDayData, setSevenDayData] = useState([]);
   const [leaderboardUsers, setLeaderboardUsers] = useState([]);
+  const [leaderboardDate, setLeaderboardDate] = useState(null);
   const [showGraphModal, setShowGraphModal] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showPieChart, setShowPieChart] = useState(false);
@@ -446,8 +975,6 @@ export default function JeeGodModeTracker() {
   const [closingModal, setClosingModal] = useState(null);
   // Auth slide-transition state for login ↔ register
   const [authOutClass, setAuthOutClass] = useState("");
-  // Guard: prevents auto-save from firing before Firestore data is loaded
-  const [dataLoaded, setDataLoaded] = useState(false);
 
   const evaluatePerformance = (h, s) => {
     const hours = parseFloat(h);
@@ -484,13 +1011,44 @@ export default function JeeGodModeTracker() {
 
   // ── Simulated competitors (display-only, never written to Firestore) ──
   const getDailyFakeCompetitors = (dateStr) => {
+    // Reference date: app launch. Days elapsed drives streak increment.
+    const REF_DATE = new Date("2026-03-11T00:00:00");
+    const parts = dateStr.split("-");
+    const thisDate = new Date(
+      parseInt(parts[0]),
+      parseInt(parts[1]) - 1,
+      parseInt(parts[2]),
+    );
+    const daysElapsed = Math.max(
+      0,
+      Math.round((thisDate - REF_DATE) / 86400000),
+    );
+
     return FAKE_COMPETITOR_NAMES.map((name, i) => {
-      // Round to nearest slider step: study 0.25, screen 0.5
-      const rawStudy = 2 + seededRand(dateStr, i * 3) * 5; // 2–7 raw
-      const rawScreen = seededRand(dateStr, i * 7 + 1) * 8; // 0–4 raw (screen slider 0–10 step 0.5)
-      const studyHrs = Math.round(rawStudy * 4) / 4; // rounded to 0.25
-      const screenHrs = Math.round(rawScreen * 2) / 2; // rounded to 0.5
-      const streakVal = Math.floor(seededRand(dateStr, i * 11 + 2) * 25); // 0–24 integer
+      // ── Study: 2–7h in 0.25 steps ──
+      const rawStudy = 2 + seededRand(dateStr, i * 3) * 5;
+      const studyHrs = Math.round(rawStudy * 4) / 4; // snapped to 0.25
+
+      // ── Screen: 1–5h in 0.5 steps ──
+      const rawScreen = 1 + seededRand(dateStr, i * 7 + 1) * 4;
+      const screenHrs = Math.round(rawScreen * 2) / 2; // snapped to 0.5
+
+      // ── PCM split: must sum exactly to studyHrs, each in 0.25 steps ──
+      const units = Math.round(studyHrs * 4); // total 0.25-units
+      const pUnits =
+        Math.floor(seededRand(dateStr, i * 13 + 5) * (units - 2)) + 1;
+      const cUnits =
+        Math.floor(seededRand(dateStr, i * 17 + 6) * (units - pUnits - 1)) + 1;
+      const mUnits = units - pUnits - cUnits;
+      const physicsH = pUnits * 0.25;
+      const chemistryH = cUnits * 0.25;
+      const mathsH = mUnits * 0.25;
+
+      // ── Streak: base (seeded per bot) + 1 per day elapsed ──
+      // Use fixed numeric seed 99991 for base streak (avoids NaN from string seed)
+      const baseStreak = Math.floor(seededRand("99991", i * 11 + 2) * 10); // 0–9 base
+      const streakVal = baseStreak + daysElapsed;
+
       const perf = evaluatePerformance(studyHrs, screenHrs);
       return {
         uid: `bot_${name}`,
@@ -501,10 +1059,13 @@ export default function JeeGodModeTracker() {
         levelColor: perf.color,
         avgStudyTime: studyHrs,
         avgScrollTime: screenHrs,
+        physics: physicsH,
+        chemistry: chemistryH,
+        maths: mathsH,
         latestBattleDate: dateStr,
         hasData: true,
         isBot: true,
-        anonymousId: null, // assigned after sort as Warrior_N
+        anonymousId: null,
         rankNum: 0,
         isCurrentUser: false,
       };
@@ -517,8 +1078,10 @@ export default function JeeGodModeTracker() {
     setTimeout(() => {
       setClosingModal(null);
       if (type === "main") setModal(null);
-      else if (type === "leaderboard") setShowLeaderboard(false);
-      else if (type === "graph") setShowGraphModal(false);
+      else if (type === "leaderboard") {
+        setShowLeaderboard(false);
+        setLeaderboardDate(null);
+      } else if (type === "graph") setShowGraphModal(false);
       else if (type === "pie") setShowPieChart(false);
     }, 260);
   }, []);
@@ -802,6 +1365,7 @@ export default function JeeGodModeTracker() {
         setBotTodayTarget(d.botTodayTarget || 6);
         setNotificationsEnabled(d.notificationsEnabled || false);
         setCurrentLevel(d.currentLevel || 0);
+        setTipStartDate(d.tipStartDate || null);
 
         const todayStr = getLocalDateStr();
         if (d.history && d.history[todayStr]) {
@@ -814,12 +1378,12 @@ export default function JeeGodModeTracker() {
         generateSevenDayData(d.history || {});
         const graphData = generateGraphCalendarData(d.history || {});
         setGraphCalendarData(graphData);
+        setDataLoaded(true);
 
         // Change 5: cache user doc locally for offline fallback
         try {
           localStorage.setItem(`jee_cache_user_${userId}`, JSON.stringify(d));
         } catch (_) {}
-        setDataLoaded(true); // ✅ Data loaded — allow auto-save now
       } else {
         console.log("📝 New user - creating document");
         await setDoc(doc(db, "jeeWarriors", userId), {
@@ -835,7 +1399,7 @@ export default function JeeGodModeTracker() {
         });
         // FIX 1: Initialize graphCalendarData for new users
         setGraphCalendarData(generateGraphCalendarData({}));
-        setDataLoaded(true); // ✅ New user doc created — allow auto-save now
+        setDataLoaded(true);
       }
 
       const token = await registerForPushNotifications();
@@ -862,6 +1426,7 @@ export default function JeeGodModeTracker() {
           setBotTodayTarget(d.botTodayTarget || 6);
           setNotificationsEnabled(d.notificationsEnabled || false);
           setCurrentLevel(d.currentLevel || 0);
+          setTipStartDate(d.tipStartDate || null);
           const todayStrFb = getLocalDateStr();
           if (d.history && d.history[todayStrFb]) {
             setTodayBattle(d.history[todayStrFb]);
@@ -871,7 +1436,7 @@ export default function JeeGodModeTracker() {
           }
           generateSevenDayData(d.history || {});
           setGraphCalendarData(generateGraphCalendarData(d.history || {}));
-          setDataLoaded(true); // ✅ Cache fallback loaded — allow auto-save now
+          setDataLoaded(true);
         }
       } catch (_) {}
     }
@@ -954,10 +1519,10 @@ export default function JeeGodModeTracker() {
 
       querySnapshot.forEach((doc) => {
         const userData = doc.data();
-        const history = userData.history || {};
+        const hist = userData.history || {};
+        const todayData = hist[today];
 
-        const todayData = history[today];
-
+        // Only show users who submitted TODAY
         if (todayData) {
           const studyTime =
             (todayData.physics || 0) +
@@ -986,7 +1551,7 @@ export default function JeeGodModeTracker() {
         }
       });
 
-      console.log(`📈 Found ${users.length} users with data for today`);
+      console.log(`📈 Found ${users.length} real users for today`);
 
       users.sort((a, b) => {
         if (b.level !== a.level) return b.level - a.level;
@@ -1116,6 +1681,7 @@ export default function JeeGodModeTracker() {
       } catch (_) {}
       setLeaderboardUsers(finalList);
       checkLastPlace(finalList);
+      setLeaderboardDate(dateStr);
       setShowLeaderboard(true);
     } catch (err) {
       console.error("❌ Error loading leaderboard for date:", dateStr, err);
@@ -1128,6 +1694,7 @@ export default function JeeGodModeTracker() {
       } catch (_) {
         setLeaderboardUsers([]);
       }
+      setLeaderboardDate(dateStr);
       setShowLeaderboard(true);
     }
   };
@@ -1142,7 +1709,7 @@ export default function JeeGodModeTracker() {
   };
 
   useEffect(() => {
-    if (!firebaseAvailable || !user || !dataLoaded) return; // ✅ Never saves zeros on first load
+    if (!firebaseAvailable || !user || !dataLoaded) return;
     const payload = {
       streak,
       l5Streak,
@@ -1153,6 +1720,7 @@ export default function JeeGodModeTracker() {
       lastNotificationDate,
       hasSubmittedData,
       currentLevel,
+      tipStartDate,
     };
     const t = setTimeout(() => saveUserData(payload), 1500);
     return () => clearTimeout(t);
@@ -1168,6 +1736,7 @@ export default function JeeGodModeTracker() {
     lastNotificationDate,
     hasSubmittedData,
     currentLevel,
+    tipStartDate,
   ]);
 
   const handleSignup = async (e) => {
@@ -1405,6 +1974,9 @@ export default function JeeGodModeTracker() {
     setStreak(0);
     setL5Streak(0);
     setHistory({});
+    setDataLoaded(false);
+    setTipStartDate(null);
+    setLastTipShownDate(null);
     setTodayBattle(null);
     setLastBattleTime(0);
     setBotTodayTarget(6);
@@ -1415,7 +1987,6 @@ export default function JeeGodModeTracker() {
     setPassword("");
     setHasSubmittedData(true);
     setCurrentLevel(0);
-    setDataLoaded(false); // ✅ Reset guard for next login
   };
 
   const registerForPushNotifications = async () => {
@@ -1499,7 +2070,7 @@ export default function JeeGodModeTracker() {
     try {
       if (Notification.permission === "granted") {
         setNotificationsEnabled(true);
-        await showNotification("🎯 GOD MODE ACTIVATED!", {
+        await showNotification("🔔 Notifications Activated!", {
           body: "You will now receive daily motivation! 🔥",
           tag: "activation",
           requireInteraction: true,
@@ -1523,7 +2094,7 @@ export default function JeeGodModeTracker() {
         setNotificationsEnabled(true);
         const token = await registerForPushNotifications();
 
-        await showNotification("🎯 GOD MODE ACTIVATED!", {
+        await showNotification("🔔 Notifications Activated!", {
           body: "Daily motivation incoming! 🔥",
           tag: "activation",
           requireInteraction: true,
@@ -1572,7 +2143,7 @@ export default function JeeGodModeTracker() {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.ready.then((registration) => {
             registration.showNotification(
-              payload.notification?.title || "JEE GOD MODE",
+              payload.notification?.title || "JEE Study Tracker",
               {
                 body: payload.notification?.body || "New strike!",
                 icon: "🎯",
@@ -1590,84 +2161,6 @@ export default function JeeGodModeTracker() {
 
     return () => unsubscribe();
   }, [messaging, user]);
-
-  useEffect(() => {
-    if (!notificationsEnabled || !user) return;
-
-    const sendDailyMotivation = async () => {
-      const istDate = getISTTime();
-      const hour = istDate.getHours();
-      const today = getTodayStr();
-
-      if (hour === 7) {
-        const key = `lastMotiv_morning_${today}`;
-        if (!localStorage.getItem(key)) {
-          const quote =
-            MORNING_QUOTES[Math.floor(Math.random() * MORNING_QUOTES.length)];
-          await showNotification("🌅 Morning Strike! Sun is up!", {
-            body: `Your competition has been studying for 2 hours. Get up, Mortal! 🚀\n\n${quote}`,
-            tag: "morning-strike",
-            requireInteraction: true,
-          });
-          localStorage.setItem(key, "done");
-        }
-      }
-
-      if (hour === 22) {
-        const key = `lastMotiv_night_${today}`;
-        if (!localStorage.getItem(key)) {
-          const quote =
-            NIGHT_QUOTES[Math.floor(Math.random() * NIGHT_QUOTES.length)];
-          await showNotification("🌙 End-of-Day Review!", {
-            body: `Did you earn your sleep or just borrow it? 😴\n\n${quote}`,
-            tag: "night-strike",
-            requireInteraction: true,
-          });
-          localStorage.setItem(key, "done");
-        }
-      }
-
-      // 11 PM reminder if today's strike has NOT been executed
-      if (hour === 23 && !todayBattle) {
-        const key = `lastMotiv_11pm_${today}`;
-        if (!localStorage.getItem(key)) {
-          await showNotification("🚨 STRIKE NOT EXECUTED!", {
-            body: "11 PM — You have NOT logged today's battle! 1 hour left before midnight. DO IT NOW! ⚔️🔥",
-            tag: "strike-missing",
-            requireInteraction: true,
-          });
-          localStorage.setItem(key, "done");
-        }
-      }
-
-      if (lastBattleTime && lastBattleTime > 0) {
-        const timeSinceLastBattle = Date.now() - lastBattleTime;
-        const hoursRemaining =
-          (24 * 60 * 60 * 1000 - timeSinceLastBattle) / (60 * 60 * 1000);
-
-        if (
-          hoursRemaining > 0 &&
-          hoursRemaining <= 1 &&
-          !todayBattle &&
-          streak > 1
-        ) {
-          const key = `lastPanic_${today}`;
-          if (!localStorage.getItem(key)) {
-            await showNotification("⚠️ STREAK CRITICAL!", {
-              body: `🔥 ${Math.floor(hoursRemaining * 60)} minutes until TOTAL RESET!\n\nDon't be a coward. Strike NOW! ⚔️`,
-              tag: "streak-panic",
-              requireInteraction: true,
-            });
-            localStorage.setItem(key, "done");
-          }
-        }
-      }
-    };
-
-    sendDailyMotivation();
-    const interval = setInterval(sendDailyMotivation, 60000);
-    return () => clearInterval(interval);
-  }, [notificationsEnabled, user, lastBattleTime, todayBattle]);
 
   const checkMilestones = async (newStreak, newL5) => {
     if ([7, 21, 30, 60, 90, 365].includes(newL5)) {
@@ -1860,6 +2353,16 @@ export default function JeeGodModeTracker() {
       setHasSubmittedData(true);
       await loadLeaderboard();
       await checkMilestones(newStreak, newL5);
+
+      // ── Record tipStartDate the first time streak hits 7 ──
+      if (newStreak >= 7 && !tipStartDate) {
+        setTipStartDate(todayStr);
+        try {
+          await updateDoc(doc(db, "jeeWarriors", user.uid), {
+            tipStartDate: todayStr,
+          });
+        } catch (_) {}
+      }
     } catch (err) {
       console.error("❌ Error saving battle:", err);
       if (!navigator.onLine) {
@@ -1868,40 +2371,68 @@ export default function JeeGodModeTracker() {
     }
   };
 
+  // ── Show daily tip once per day on app open — resets naturally at midnight ──
+  useEffect(() => {
+    if (!dataLoaded || !user) return;
+    const streak_ = streak;
+    const ts = tipStartDate;
+    if (streak_ < 7 || !ts) return;
+
+    const todayIST = getTodayStrIST();
+    if (lastTipShownDate === todayIST) return; // already shown today — skip
+
+    const startParts = ts.split("-");
+    const startDate = new Date(
+      parseInt(startParts[0]),
+      parseInt(startParts[1]) - 1,
+      parseInt(startParts[2]),
+    );
+    const todayParts = todayIST.split("-");
+    const todayDate = new Date(
+      parseInt(todayParts[0]),
+      parseInt(todayParts[1]) - 1,
+      parseInt(todayParts[2]),
+    );
+    const rawIdx = Math.round((todayDate - startDate) / 86400000);
+    if (rawIdx < 0) return;
+    const tipIdx = rawIdx % DAILY_TIPS_APP.length; // cycles after 100
+    const tip = DAILY_TIPS_APP[tipIdx];
+
+    const t = setTimeout(() => {
+      setLastTipShownDate(todayIST);
+      setModal({
+        type: "alert",
+        msg: `💡 Tip ${tipIdx + 1} of ${DAILY_TIPS_APP.length}\n\n${tip.detailed}`,
+        severity: "tip",
+      });
+    }, 1500);
+    return () => clearTimeout(t);
+  }, [dataLoaded, user, streak, tipStartDate, lastTipShownDate]);
+
   useEffect(() => {
     const checkTimers = async () => {
       if (!lastBattleTime) return;
 
-      // Calendar-day check: reset streak if last battle was before yesterday
-      // (i.e., user missed at least one full day between then and today)
-      const lastDate = new Date(lastBattleTime);
-      const lYear = lastDate.getFullYear();
-      const lMonth = String(lastDate.getMonth() + 1).padStart(2, "0");
-      const lDay = String(lastDate.getDate()).padStart(2, "0");
+      // Calendar-day check using IST dates to avoid timezone edge cases at midnight
+      const lastDateIST = getISTTime(new Date(lastBattleTime));
+      const lYear = lastDateIST.getFullYear();
+      const lMonth = String(lastDateIST.getMonth() + 1).padStart(2, "0");
+      const lDay = String(lastDateIST.getDate()).padStart(2, "0");
       const lastBattleDateStr = `${lYear}-${lMonth}-${lDay}`;
 
-      const yest = new Date();
-      yest.setDate(yest.getDate() - 1);
-      const yYear = yest.getFullYear();
-      const yMonth = String(yest.getMonth() + 1).padStart(2, "0");
-      const yDay = String(yest.getDate()).padStart(2, "0");
+      const yesterdayIST = getISTTime(
+        new Date(Date.now() - 24 * 60 * 60 * 1000),
+      );
+      const yYear = yesterdayIST.getFullYear();
+      const yMonth = String(yesterdayIST.getMonth() + 1).padStart(2, "0");
+      const yDay = String(yesterdayIST.getDate()).padStart(2, "0");
       const yesterdayStr = `${yYear}-${yMonth}-${yDay}`;
 
       // Reset only if last battle is strictly before yesterday (missed full day)
       if (lastBattleDateStr < yesterdayStr && streak > 0) {
-        const egoHurt =
-          EGO_INSULTS[Math.floor(Math.random() * EGO_INSULTS.length)];
         setStreak(0);
         setL5Streak(0);
         setBotMsg("Bot wins — you skipped a day. Streak Terminated.");
-
-        if (notificationsEnabled) {
-          await showNotification("💀 BOT DEFEATED YOU!", {
-            body: `You skipped a day — the bot wins by default! Streak reset to 0.\n\n${egoHurt}`,
-            tag: "streak-ended",
-            requireInteraction: true,
-          });
-        }
 
         if (user) {
           updateDoc(doc(db, "jeeWarriors", user.uid), {
@@ -1919,6 +2450,8 @@ export default function JeeGodModeTracker() {
 
   useEffect(() => {
     if (!showLeaderboard || !user || !firebaseAvailable) return;
+    // Don't override past-date leaderboard with today's live data
+    if (leaderboardDate && leaderboardDate !== getLocalDateStr()) return;
 
     console.log("🔴 Setting up real-time leaderboard listener");
 
@@ -2019,7 +2552,7 @@ export default function JeeGodModeTracker() {
       unsubscribe();
       clearInterval(interval);
     };
-  }, [showLeaderboard, user, firebaseAvailable]);
+  }, [showLeaderboard, leaderboardDate, user, firebaseAvailable]);
 
   const goToPreviousMonth = () => {
     if (calendarMonth === 0) {
@@ -2157,7 +2690,7 @@ export default function JeeGodModeTracker() {
                 {resetFlowStep === "login" && (
                   <div>
                     <h1 className="text-4xl font-black italic tracking-tighter text-cyan-500 text-center mb-8">
-                      GOD MODE
+                      JEE Study Tracker
                     </h1>
 
                     <form onSubmit={handleLogin} className="space-y-4">
@@ -2321,7 +2854,7 @@ export default function JeeGodModeTracker() {
                 style={{ minHeight: "500px" }}
               >
                 <h1 className="text-4xl font-black italic tracking-tighter text-cyan-500 text-center mb-8">
-                  GOD MODE
+                  JEE Study Tracker
                 </h1>
 
                 <form onSubmit={handleSignup} className="space-y-4">
@@ -2465,6 +2998,7 @@ export default function JeeGodModeTracker() {
                   );
                   return;
                 }
+                setLeaderboardDate(null);
                 loadLeaderboard();
                 setShowLeaderboard(true);
               }}

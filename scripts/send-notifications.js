@@ -48,6 +48,15 @@ const EGO_INSULTS = [
   "Mom tells relatives you're preparing hard. She's LYING to save face.",
 ];
 
+const JEE_TIPS = {
+  7: "✅ Solve 50-70 problems daily\n✅ Sleep 11 PM - 6 AM\n✅ 10-min breaks every hour\n✅ Drink water, eat healthy\n✅ Exercise 30 mins daily",
+  21: "✅ Solve 100-150 problems daily\n✅ Morning (5-8 AM): Maths\n✅ Afternoon (2-5 PM): Physics\n✅ Evening (7-10 PM): Chemistry\n✅ Weak topics: Extra 1 hour daily",
+  30: "✅ 2-3 full mock tests per week\n✅ Analyze mistakes 1 hour daily\n✅ Revise previous day's concepts\n✅ Meditation: 10 mins daily\n✅ Track weak areas + 2 extra hours",
+  60: "✅ 5 full-length mocks per week\n✅ Speed: 30 problems in 30 mins\n✅ Accuracy focus on easy problems\n✅ Weak areas: Extra 2 hours daily\n✅ Sleep 8 hours — SUPERPOWER!",
+  90: "✅ Target: 95+ percentile\n✅ Standard + Advanced problems\n✅ Conceptual clarity > Speed\n✅ Mock tests: Analyze every detail\n✅ Meditation: 20 mins daily",
+  365: "✅ You've mastered consistency\n✅ Teach others — cement learning\n✅ Share your journey\n✅ Master all approaches\n✅ IIT/NIT is YOURS!",
+};
+
 const MILESTONE_MESSAGES = {
   7: "7-day streak champion! You're on fire! 🔥",
   21: "21-day warrior! Consistency is key! 💪",
@@ -56,6 +65,110 @@ const MILESTONE_MESSAGES = {
   90: "90-day elite! This is excellence! 🌟",
   365: "365-day immortal! You're a legend! 🎊",
 };
+
+// 100 daily JEE tips — short version sent in notification, detailed shown in app
+const DAILY_TIPS = [
+  "Solve 20 PYQ questions every day without fail.",
+  "After a wrong answer, understand why — don't just see the solution.",
+  "Solve problems without knowing the chapter first.",
+  "Time yourself on every problem set you solve.",
+  "One wrong problem understood deeply beats ten easy ones.",
+  "Eliminate options strategically — never guess completely randomly.",
+  "Solve the same problem 3 different ways — then you own it.",
+  "Mark difficult problems and return after 24 hours.",
+  "Keep a mistakes notebook and review it every Sunday.",
+  "Solve 5 problems purely in your head — no pen.",
+  "Learn to sanity-check answers in 30 seconds without resolving.",
+  "3 hard problems daily beats 30 easy ones.",
+  "Derive every formula once from scratch — then you never forget it.",
+  "Full-length mocks must be under real exam conditions every week.",
+  "Analyse your mock before you see the solutions.",
+  "Plan tomorrow's study schedule every night before sleeping.",
+  "Use your first 2 morning hours for Maths — your sharpest time.",
+  "Study in 50-minute blocks with strict 10-minute breaks.",
+  "Never study the same subject for more than 3 hours straight.",
+  "Protect your first 30 study minutes from phone — no exceptions.",
+  "Track actual study hours — not time sitting at your desk.",
+  "Batch your doubts — don't interrupt study flow to look things up.",
+  "Schedule your hardest topic first every single day.",
+  "Saturday: mock tests. Sunday: deep error analysis. Every week.",
+  "Use commute and waiting time for theory revision, not scrolling.",
+  "Never skip sleep to study — it destroys the next 2 days.",
+  "Revise a topic within 24 hours of learning it — this is critical.",
+  "Set a hard stop time for studying and respect it — it builds urgency.",
+  "Review today's key points in 5 minutes before sleeping.",
+  "Take one complete rest day per week — burnout kills streaks.",
+  "Every Physics problem starts with a free body diagram.",
+  "Understand the Physics concept before memorising the formula.",
+  "Dimensional analysis catches 80% of formula errors instantly.",
+  "Draw energy diagrams for every mechanics problem.",
+  "Electrostatics: superposition is your most powerful tool.",
+  "Waves: always separate what is oscillating from what is propagating.",
+  "Modern Physics is formula-heavy but concept-light — master it quickly.",
+  "Thermodynamics: draw the PV diagram before calculating anything.",
+  "Electricity circuits: redraw in simplest form before applying equations.",
+  "Rotational Motion: always choose the axis that eliminates unknown torques.",
+  "Organic Chemistry reactions follow patterns — learn the mechanism.",
+  "Periodic table trends are the backbone of Inorganic Chemistry.",
+  "Physical Chemistry is applied Maths — treat it exactly like one.",
+  "Balance redox equations using oxidation state method, not trial and error.",
+  "Draw all structural isomers methodically — never by intuition.",
+  "Memorise Chemistry exceptions — they are the most tested.",
+  "Use IUPAC naming on every single practice problem.",
+  "p-block: know the oxides and hydrides of each group cold.",
+  "The Nernst equation appears in JEE almost every single year.",
+  "Use curved arrows for reaction mechanisms — never memorise without them.",
+  "Calculus: understand the definition of derivative before the rules.",
+  "The unit circle is more powerful than any trig formula sheet.",
+  "Coordinate Geometry: verify your equation by substituting a known point.",
+  "Probability: always define the sample space before anything else.",
+  "Matrices: learn the cofactor method for inverse — it's faster for 3x3.",
+  "Vectors: resolve every 3D problem into components immediately.",
+  "Integration: recognise the type before choosing the technique.",
+  "AP, GP, HP sum formulas must be completely automatic.",
+  "Complex numbers: draw the Argand plane — most problems become visual.",
+  "P&C: always ask 'is order important?' before writing any formula.",
+  "Drink 3 litres of water daily — dehydration kills focus.",
+  "Eat light at lunch — heavy meals crash your afternoon energy.",
+  "30 minutes of walking daily is brain maintenance, not optional.",
+  "Follow the 20-20-20 rule for eyes every study session.",
+  "A 20-minute nap restores focus without causing grogginess.",
+  "Never study past midnight — retention is minimal after then.",
+  "Eat a banana or nuts before a study session for sustained energy.",
+  "Same sleep and wake time every day — consistency is everything.",
+  "5-minute stretch every hour — your spine and focus will thank you.",
+  "Never study with lyrics on — they use the same memory buffer as reading.",
+  "Comparison with others is the fastest way to destroy your focus.",
+  "Boredom during study is the signal you are doing the right work.",
+  "Your rank is determined by your worst subject, not your best.",
+  "Eliminate the option of quitting before you even start.",
+  "Fear of failure is not your enemy — complacency is.",
+  "Celebrate small wins — they compound into massive momentum.",
+  "Visualise your exam day success every night before sleeping.",
+  "Discomfort is temporary. The regret of not trying is permanent.",
+  "Identify your peak focus hours and protect them ruthlessly.",
+  "The consistent student beats the brilliant one who doesn't show up.",
+  "Read the entire paper for 5 minutes before solving anything.",
+  "Start with your strongest subject to build confidence and bank marks.",
+  "Never spend more than 4 minutes on one stuck question.",
+  "Negative marking: only guess when you can eliminate at least 2 options.",
+  "JEE Mains: perfect accuracy on easy questions beats racing to hard ones.",
+  "Keep rough work neat and systematic — toppers have immaculate rough work.",
+  "Don't change your first answer unless you found a specific error.",
+  "Physics then Chemistry then Maths — test this order in every mock.",
+  "Integer-type questions have no negative marking — always attempt all.",
+  "Eat light and sleep 8 hours the night before the exam — not study.",
+  "Active recall beats re-reading by 3x for long-term retention.",
+  "Revise on days 1, 3, 7, 14, and 30 after learning — this is the spaced schedule.",
+  "Create a one-page summary of each chapter after completing it.",
+  "Teach a concept to an imaginary student — gaps reveal themselves.",
+  "Revise formulas every morning for 10 minutes — just formulas.",
+  "Interleaved revision beats blocked revision for exam performance.",
+  "Before a new chapter, write what you already know — this primes learning.",
+  "Test yourself every 20 minutes — never revise for longer without recall.",
+  "Review your last mock's error analysis before your next mock.",
+  "Last month before JEE: revise and practice only — no new chapters.",
+];
 
 const MILESTONE_DAYS = [7, 21, 30, 60, 90, 365];
 
@@ -114,6 +227,13 @@ async function sendToTargets(
   type,
   today,
 ) {
+  if (process.env.DRY_RUN === "true") {
+    console.log(
+      `  🔇 DRY RUN — skipping send for [${type}] (${targets.length} targets). Schedule activated.`,
+    );
+    return;
+  }
+
   if (targets.length === 0) {
     console.log(`  ℹ️  No targets for [${type}]`);
     return;
@@ -267,16 +387,64 @@ async function sendMilestone(db, messaging, today) {
     if (!(d.history || {})[today]) continue;
     if (!MILESTONE_DAYS.includes(l5Streak)) continue;
     if (await wasAlreadySent(db, doc.id, today, "milestone")) continue;
+    const shortMsg = MILESTONE_MESSAGES[l5Streak] || "";
+    const tipsMsg = JEE_TIPS[l5Streak] || "";
+    const fullBody = tipsMsg ? `${shortMsg}\n\n${tipsMsg}` : shortMsg;
     await sendToTargets(
       messaging,
       db,
       [{ uid: doc.id, token: d.fcmToken }],
       {
-        title: "🏆 MILESTONE ACHIEVED!",
-        body: MILESTONE_MESSAGES[l5Streak],
+        title: `🏆 ${l5Streak}-DAY MILESTONE UNLOCKED!`,
+        body: fullBody,
         tag: "milestone",
       },
       "milestone",
+      today,
+    );
+  }
+}
+
+async function sendDailyTip(db, messaging, today) {
+  console.log("\n💡 DAILY TIP — 10:00 AM IST — streak >= 7, same tip as app");
+  const snapshot = await db.collection("jeeWarriors").get();
+  for (const docSnap of snapshot.docs) {
+    const d = docSnap.data();
+    if (!d.notificationsEnabled || !d.fcmToken) continue;
+    if ((d.streak || 0) < 7) continue;
+    if (!d.tipStartDate) continue;
+
+    // Calculate tip index from tipStartDate stored in Firestore
+    const startParts = d.tipStartDate.split("-");
+    const startDate = new Date(
+      parseInt(startParts[0]),
+      parseInt(startParts[1]) - 1,
+      parseInt(startParts[2]),
+    );
+    const todayParts = today.split("-");
+    const todayDate = new Date(
+      parseInt(todayParts[0]),
+      parseInt(todayParts[1]) - 1,
+      parseInt(todayParts[2]),
+    );
+    const tipIdx = Math.round((todayDate - startDate) / 86400000);
+
+    if (tipIdx < 0) continue;
+    const cycledIdx = tipIdx % DAILY_TIPS.length; // cycles back to start after 100
+
+    if (await wasAlreadySent(db, docSnap.id, today, "daily_tip")) continue;
+
+    const tip = DAILY_TIPS[cycledIdx];
+    await sendToTargets(
+      messaging,
+      db,
+      [{ uid: docSnap.id, token: d.fcmToken }],
+      {
+        title: `💡 JEE Study Tracker — Tip ${cycledIdx + 1}/100`,
+        body: tip,
+        tag: "daily-tip",
+      },
+      "daily_tip",
       today,
     );
   }
@@ -366,7 +534,12 @@ async function sendStreakPanic(db, messaging, today) {
 
 async function sendStreakReset(db, messaging, today) {
   console.log(
-    "\n💀 STREAK RESET — 12:00 AM IST — missed yesterday AND had streak > 0",
+    "\n💀 STREAK RESET — 12:00 AM IST — missed 2 days ago AND had streak > 0",
+  );
+  // Use 2 days ago instead of yesterday to account for GitHub Actions delay
+  // (workflow can fire at 12:55 AM IST, at which point "yesterday" is the current day)
+  const twoDaysAgo = getISTDateStr(
+    new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
   );
   const yesterday = getYesterdayIST();
   const snapshot = await db.collection("jeeWarriors").get();
@@ -374,8 +547,10 @@ async function sendStreakReset(db, messaging, today) {
   for (const doc of snapshot.docs) {
     const d = doc.data();
     if (!d.notificationsEnabled || !d.fcmToken) continue;
-    if ((d.streak || 0) === 0) continue; // already 0 — skip
-    if ((d.history || {})[yesterday]) continue; // submitted yesterday — no reset
+    if ((d.streak || 0) === 0) continue;
+    // Only reset if missed BOTH yesterday AND two days ago
+    const hist = d.history || {};
+    if (hist[yesterday] || hist[twoDaysAgo]) continue; // submitted recently — safe
     if (await wasAlreadySent(db, doc.id, today, "streak_reset")) continue;
     targets.push({ uid: doc.id, token: d.fcmToken });
   }
@@ -449,6 +624,8 @@ async function main() {
     await sendMilestone(db, messaging, today);
   } else if (TYPE === "weekly") {
     await sendWeeklyGraph(db, messaging, today);
+  } else if (TYPE === "daily_tip") {
+    await sendDailyTip(db, messaging, today);
   } else {
     console.error(`❌ Unknown type: "${TYPE}"`);
     process.exit(1);

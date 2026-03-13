@@ -1,0 +1,30 @@
+name: Daily Tip Notification
+
+on:
+  schedule:
+    - cron: "30 4 * * *" # 10:00 AM IST — single daily run
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (true = no notifications sent)"
+        required: false
+        default: "false"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: cd scripts && npm install
+      - name: Send daily tip
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+          NOTIFICATION_TYPE: daily_tip
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: node scripts/send-notifications.js
