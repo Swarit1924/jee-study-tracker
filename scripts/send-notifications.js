@@ -578,19 +578,39 @@ async function sendStreakReset(db, messaging, today) {
 
 // ── MAIN ──────────────────────────────────────────────────────────────────────
 async function main() {
-  const RAW_SA = process.env.FIREBASE_SERVICE_ACCOUNT;
   const TYPE = process.env.NOTIFICATION_TYPE || "morning";
 
-  if (!RAW_SA) {
-    console.error("❌ FIREBASE_SERVICE_ACCOUNT secret is missing.");
-    process.exit(1);
-  }
+  // Support both single JSON secret and 3 separate secrets
+  const RAW_SA = process.env.FIREBASE_SERVICE_ACCOUNT;
+  const PROJECT_ID = process.env.FIREBASE_PROJECT_ID;
+  const CLIENT_EMAIL = process.env.FIREBASE_CLIENT_EMAIL;
+  const PRIVATE_KEY = process.env.FIREBASE_PRIVATE_KEY;
 
   let serviceAccount;
-  try {
-    serviceAccount = JSON.parse(RAW_SA);
-  } catch (err) {
-    console.error("❌ Failed to parse FIREBASE_SERVICE_ACCOUNT:", err.message);
+
+  if (RAW_SA) {
+    // Single combined JSON secret
+    try {
+      serviceAccount = JSON.parse(RAW_SA);
+    } catch (err) {
+      console.error(
+        "❌ Failed to parse FIREBASE_SERVICE_ACCOUNT:",
+        err.message,
+      );
+      process.exit(1);
+    }
+  } else if (PROJECT_ID && CLIENT_EMAIL && PRIVATE_KEY) {
+    // 3 separate secrets (existing setup)
+    serviceAccount = {
+      type: "service_account",
+      project_id: PROJECT_ID,
+      client_email: CLIENT_EMAIL,
+      private_key: PRIVATE_KEY.replace(/\\n/g, "\n"),
+    };
+  } else {
+    console.error(
+      "❌ Firebase credentials missing. Set either FIREBASE_SERVICE_ACCOUNT or FIREBASE_PROJECT_ID + FIREBASE_CLIENT_EMAIL + FIREBASE_PRIVATE_KEY.",
+    );
     process.exit(1);
   }
 
